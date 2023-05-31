@@ -1,14 +1,16 @@
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const Signup = () => {
+const Signup = ({ cookieToken }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate = useNavigate();
 
   return (
     <section>
@@ -29,9 +31,18 @@ const Signup = () => {
                   }
                 );
                 setErrorMessage("");
-                console.log(response.data);
+                if (response.data.token) {
+                  cookieToken(response.data.token);
+                  navigate("/");
+                } else
+                  setErrorMessage(
+                    "Un problème est survenue ressayé ulterieurement !"
+                  );
               } catch (error) {
-                console.log(error);
+                console.log(error.response);
+                if (error.response.request.status === 409) {
+                  setErrorMessage("Ce mail existe déja");
+                }
               }
             } else {
               setErrorMessage("Vos mots de passe ne sont pas identiques !");
@@ -87,6 +98,9 @@ const Signup = () => {
         <p>{errorMessage}</p>
         <button type="submit">S'inscrire</button>
       </form>
+      <Link to={"/login"}>
+        <p>Tu as déjà un compte ? Connecte-toi !</p>
+      </Link>
     </section>
   );
 };
