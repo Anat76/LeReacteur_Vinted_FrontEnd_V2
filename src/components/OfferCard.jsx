@@ -11,7 +11,7 @@ const OfferCard = ({ offer }) => {
           <span>{offer.owner.account.username}</span>
         </div>
         <img src={offer.product_image.secure_url} alt="" />
-        <p>{offer.product_price}</p>
+        <p>{offer.product_price} €</p>
         <div>
           {offer.product_details.map((details, index) => {
             if (details.TAILLE) {
