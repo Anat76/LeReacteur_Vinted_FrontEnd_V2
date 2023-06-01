@@ -7,7 +7,7 @@ const OfferCard = ({ offer }) => {
         <article>
           <div>
             {offer.owner.account.avatar.secure_url && (
-              <img src={offer.owner.account.avatar.secure_url} />
+              <img src={offer.owner.account.avatar.secure_url} alt="" />
             )}
             <span>{offer.owner.account.username}</span>
           </div>
