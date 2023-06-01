@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const Offer = () => {
   const { id } = useParams();
@@ -12,7 +12,6 @@ const Offer = () => {
       try {
         const result = await axios.get(`http://localhost:3000/offer/${id}`);
         setDataOffer(result.data);
-        console.log(dataOffer);
         setIsLoading(false);
       } catch (error) {
         console.log(error);
@@ -20,7 +19,8 @@ const Offer = () => {
     };
     fetchData();
   }, []);
-
+  // console.log(dataOffer);
+  // console.log(dataOffer._id);
   return isLoading ? (
     <h1>loading ...</h1>
   ) : (
@@ -46,6 +46,9 @@ const Offer = () => {
             )}
             <span>{dataOffer.owner.account.username}</span>
           </div>
+          <Link to="/payment" state={dataOffer}>
+            Acheter
+          </Link>
         </div>
       </div>
     </>
