@@ -29,7 +29,6 @@ const Home = ({ search, sort }) => {
   ) : (
     <>
       <h1>Home</h1>
-      <h2>Offres disponible : {dataOffers.count}</h2>
       {dataOffers.offer.map((offer) => {
         return <OfferCard key={offer._id} offer={offer} />;
       })}
