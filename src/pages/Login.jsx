@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
 
-const Login = ({ cookieToken }) => {
+const Login = ({ cookieToken, cookieId }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,6 +22,7 @@ const Login = ({ cookieToken }) => {
             );
             if (result.data.token) {
               cookieToken(result.data.token);
+              cookieId(result.data._id);
               navigate("/");
             }
           } catch (error) {

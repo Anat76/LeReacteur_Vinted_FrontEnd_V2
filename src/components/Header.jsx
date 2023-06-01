@@ -1,7 +1,15 @@
 import logoVinted from "../assets/img/logoVinted.png";
 import { Link } from "react-router-dom";
 
-const Header = ({ token, cookieToken, search, setSearch, sort, setSort }) => {
+const Header = ({
+  token,
+  cookieToken,
+  search,
+  setSearch,
+  sort,
+  setSort,
+  cookieId,
+}) => {
   return (
     <header>
       <Link to="/">
@@ -29,6 +37,7 @@ const Header = ({ token, cookieToken, search, setSearch, sort, setSort }) => {
           <button
             onClick={() => {
               cookieToken(null);
+              cookieId(null);
             }}
           >
             Deconnexion

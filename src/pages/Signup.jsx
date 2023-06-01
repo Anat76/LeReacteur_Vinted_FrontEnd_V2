@@ -2,7 +2,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const Signup = ({ cookieToken }) => {
+const Signup = ({ cookieToken, cookieId }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,6 +33,7 @@ const Signup = ({ cookieToken }) => {
                 setErrorMessage("");
                 if (response.data.token) {
                   cookieToken(response.data.token);
+                  cookieId(response.data._id);
                   navigate("/");
                 } else
                   setErrorMessage(
