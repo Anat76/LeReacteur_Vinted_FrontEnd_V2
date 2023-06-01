@@ -7,8 +7,11 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Cookies from "js-cookie";
 import { useState } from "react";
+import Publish from "./pages/Publish";
 
 const App = () => {
+  const [search, setSearch] = useState("");
+  const [sort, setSort] = useState(false);
   const [token, setToken] = useState(Cookies.get("tokenVinted") || null);
 
   const cookieToken = (token) => {
@@ -23,12 +26,20 @@ const App = () => {
 
   return (
     <Router>
-      <Header token={token} cookieToken={cookieToken} />
+      <Header
+        token={token}
+        cookieToken={cookieToken}
+        search={search}
+        setSearch={setSearch}
+        sort={sort}
+        setSort={setSort}
+      />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home search={search} sort={sort} />} />
         <Route path="/offer/:id" element={<Offer />} />
         <Route path="/signup" element={<Signup cookieToken={cookieToken} />} />
         <Route path="login" element={<Login cookieToken={cookieToken} />} />
+        <Route path="publish" element={<Publish token={token} />} />
       </Routes>
     </Router>
   );
