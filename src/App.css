@@ -11,3 +11,23 @@ img {
 a {
   all: unset;
 }
+.container {
+  width: 90vw;
+  margin: 0 auto;
+  height: 120px;
+}
+
+/* =====================HEADER======================= */
+header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+header img {
+  height: 50px;
+  object-fit: cover;
+}
+
+.search {
+  width: 600px;
+}

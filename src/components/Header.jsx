@@ -11,27 +11,30 @@ const Header = ({
   cookieId,
 }) => {
   return (
-    <header>
+    <header className="container">
       <Link to="/">
         <img src={logoVinted} alt="" />
       </Link>
 
-      <input
-        type="text"
-        placeholder="Rechercher un article"
-        onChange={(event) => {
-          setSearch(event.target.value);
-        }}
-        value={search}
-      />
-      <input
-        type="checkbox"
-        onChange={(event) => {
-          setSort(!sort);
-        }}
-        id="sort"
-      />
-      <label htmlFor="sort">Trier par prix croissant/decroissant</label>
+      <div className="search">
+        <input
+          type="text"
+          placeholder="Rechercher un article"
+          onChange={(event) => {
+            setSearch(event.target.value);
+          }}
+          value={search}
+        />
+        <input
+          type="checkbox"
+          onChange={(event) => {
+            setSort(!sort);
+          }}
+          id="sort"
+        />
+        <label htmlFor="sort">Trier par prix croissant/decroissant</label>
+      </div>
+
       <section>
         {token ? (
           <button
