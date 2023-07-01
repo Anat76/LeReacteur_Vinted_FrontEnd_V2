@@ -56,10 +56,10 @@ const App = () => {
           element={<Signup cookieToken={cookieToken} cookieId={cookieId} />}
         />
         <Route
-          path="login"
+          path="/login"
           element={<Login cookieToken={cookieToken} cookieId={cookieId} />}
         />
-        <Route path="publish" element={<Publish token={token} />} />
+        <Route path="/publish" element={<Publish token={token} />} />
         <Route
           path="/payment"
           element={<Payment token={token} cookieIdUser={cookieIdUser} />}
