@@ -13,6 +13,7 @@ const Publish = ({ token }) => {
   const [color, setColor] = useState("");
   const [picture, setPicture] = useState("");
 
+  console.log(picture);
   return token ? (
     <>
       <h1>Publier une annonce</h1>
@@ -36,7 +37,7 @@ const Publish = ({ token }) => {
               formData,
               {
                 headers: {
-                  Authorization: `Bearer ${token}`,
+                  authorization: `Bearer ${token}`,
                   "Content-Type": "multipart/form-data",
                 },
               }
