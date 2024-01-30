@@ -26,6 +26,7 @@ const Home = ({ search, sort }) => {
     };
     fetchData();
   }, [search, sort]);
+
   return isLoading ? (
     <h1>Loading ...</h1>
   ) : (
@@ -39,9 +40,9 @@ const Home = ({ search, sort }) => {
           </Link>
         </div>
       </div>
-      {/* {dataOffers.offer.map((offer) => {
+      {dataOffers.offer.map((offer) => {
         return <OfferCard key={offer._id} offer={offer} />;
-      })} */}
+      })}
     </main>
   );
 };
