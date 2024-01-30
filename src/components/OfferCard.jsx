@@ -6,9 +6,9 @@ const OfferCard = ({ offer }) => {
       <Link to={`offer/${offer._id}`}>
         <article>
           <div>
-            {offer.owner.account.avatar.secure_url && (
+            {/* {offer.owner.account.avatar.secure_url && (
               <img src={offer.owner.account.avatar.secure_url} alt="" />
-            )}
+            )} */}
             <span>{offer.owner.account.username}</span>
           </div>
           <img src={offer.product_image.secure_url} alt="" />
